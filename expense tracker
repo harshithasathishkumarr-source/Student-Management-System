@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class ExpenseTracker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Double> expenses = new ArrayList<>();
+
+        while (true) {
+            System.out.println("\n1.Add Expense 2.Total 3.Average 4.Exit");
+            int ch = sc.nextInt();
+
+            if (ch == 1) {
+                System.out.print("Enter amount: ");
+                expenses.add(sc.nextDouble());
+            } 
+            else if (ch == 2) {
+                double sum = 0;
+                for (double e : expenses) sum += e;
+                System.out.println("Total: " + sum);
+            } 
+            else if (ch == 3) {
+                double sum = 0;
+                for (double e : expenses) sum += e;
+                System.out.println("Average: " + (sum / expenses.size()));
+            } 
+            else break;
+        }
+    }
+}
