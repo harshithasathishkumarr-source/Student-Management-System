@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class FraudDetectionAdvanced {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter usual location: ");
+        String usualLoc = sc.nextLine();
+
+        System.out.print("Enter usual device ID: ");
+        String usualDev = sc.nextLine();
+
+        System.out.print("Enter transaction location: ");
+        String newLoc = sc.nextLine();
+
+        System.out.print("Enter transaction device ID: ");
+        String newDev = sc.nextLine();
+
+        System.out.print("Enter transaction amount: ");
+        double amount = sc.nextDouble();
+
+        boolean fraud = false;
+
+        if (!newLoc.equalsIgnoreCase(usualLoc)) {
+            System.out.println("⚠ Location mismatch!");
+            fraud = true;
+        }
+
+        if (!newDev.equals(usualDev)) {
+            System.out.println("⚠ New device detected!");
+            fraud = true;
+        }
+
+        if (amount > 50000) {
+            System.out.println("⚠ High transaction amount!");
+            fraud = true;
+        }
+
+        if (fraud) {
+            System.out.println("🚨 Transaction Flagged as FRAUD");
+        } else {
+            System.out.println("✅ Transaction Safe");
+        }
+    }
+}
