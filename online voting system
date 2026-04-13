@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class VotingSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int votesA = 0, votesB = 0;
+
+        while (true) {
+            System.out.println("\n1.Vote A 2.Vote B 3.Results 4.Exit");
+            int ch = sc.nextInt();
+
+            if (ch == 1) votesA++;
+            else if (ch == 2) votesB++;
+            else if (ch == 3) {
+                System.out.println("A: " + votesA + " B: " + votesB);
+            } 
+            else break;
+        }
+    }
+}
