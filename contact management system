@@ -1,0 +1,45 @@
+import java.util.*;
+
+class Contact {
+    String name;
+    String phone;
+
+    Contact(String n, String p) {
+        name = n;
+        phone = p;
+    }
+}
+
+public class ContactManager {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Contact> contacts = new ArrayList<>();
+
+        while (true) {
+            System.out.println("\n1.Add 2.View 3.Search 4.Exit");
+            int ch = sc.nextInt();
+            sc.nextLine();
+
+            if (ch == 1) {
+                System.out.print("Name: ");
+                String n = sc.nextLine();
+                System.out.print("Phone: ");
+                String p = sc.nextLine();
+                contacts.add(new Contact(n, p));
+            } 
+            else if (ch == 2) {
+                for (Contact c : contacts)
+                    System.out.println(c.name + " - " + c.phone);
+            } 
+            else if (ch == 3) {
+                System.out.print("Enter name: ");
+                String search = sc.nextLine();
+                for (Contact c : contacts) {
+                    if (c.name.equalsIgnoreCase(search))
+                        System.out.println(c.phone);
+                }
+            } 
+            else break;
+        }
+    }
+}
