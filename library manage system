@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class LibrarySystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> books = new ArrayList<>();
+
+        while (true) {
+            System.out.println("\n1.Add Book 2.View Books 3.Remove Book 4.Exit");
+            int ch = sc.nextInt();
+            sc.nextLine();
+
+            if (ch == 1) {
+                System.out.print("Enter book name: ");
+                books.add(sc.nextLine());
+            } else if (ch == 2) {
+                System.out.println("Books: " + books);
+            } else if (ch == 3) {
+                System.out.print("Enter book to remove: ");
+                books.remove(sc.nextLine());
+            } else {
+                break;
+            }
+        }
+    }
+}
