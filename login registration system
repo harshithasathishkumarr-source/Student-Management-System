@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class LoginSystem {
+    static HashMap<String, String> users = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n1.Register 2.Login 3.Exit");
+            int ch = sc.nextInt();
+            sc.nextLine();
+
+            if (ch == 1) {
+                System.out.print("Username: ");
+                String u = sc.nextLine();
+                System.out.print("Password: ");
+                String p = sc.nextLine();
+                users.put(u, p);
+                System.out.println("Registered!");
+            } 
+            else if (ch == 2) {
+                System.out.print("Username: ");
+                String u = sc.nextLine();
+                System.out.print("Password: ");
+                String p = sc.nextLine();
+
+                if (users.containsKey(u) && users.get(u).equals(p))
+                    System.out.println("Login Success");
+                else
+                    System.out.println("Invalid credentials");
+            } 
+            else break;
+        }
+    }
+}
