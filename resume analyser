@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class ResumeAnalyzer {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter resume skills: ");
+        String resume = sc.nextLine().toLowerCase();
+
+        System.out.print("Enter job required skills: ");
+        String job = sc.nextLine().toLowerCase();
+
+        int match = 0;
+        String[] jobSkills = job.split(" ");
+
+        for (String skill : jobSkills) {
+            if (resume.contains(skill)) {
+                match++;
+            }
+        }
+
+        System.out.println("Match Score: " + match + "/" + jobSkills.length);
+    }
+}
