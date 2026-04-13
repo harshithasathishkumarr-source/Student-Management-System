@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class TrainBooking {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int seats = 5;
+
+        while (true) {
+            System.out.println("\n1.Book Ticket 2.Check Seats 3.Exit");
+            int ch = sc.nextInt();
+
+            if (ch == 1) {
+                if (seats > 0) {
+                    seats--;
+                    System.out.println("Ticket Booked!");
+                } else {
+                    System.out.println("No seats available");
+                }
+            } 
+            else if (ch == 2) {
+                System.out.println("Available Seats: " + seats);
+            } 
+            else break;
+        }
+    }
+}
