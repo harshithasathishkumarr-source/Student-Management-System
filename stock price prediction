@@ -1,0 +1,31 @@
+public class StockPrediction {
+
+    public static void main(String[] args) {
+
+        // Sample stock data (Day vs Price)
+        double[] x = {1, 2, 3, 4, 5, 6, 7};
+        double[] y = {150, 152, 153, 155, 157, 160, 162};
+
+        int n = x.length;
+
+        double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+
+        // Calculate sums
+        for (int i = 0; i < n; i++) {
+            sumX += x[i];
+            sumY += y[i];
+            sumXY += x[i] * y[i];
+            sumX2 += x[i] * x[i];
+        }
+
+        // Linear Regression Formula
+        double m = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        double b = (sumY - m * sumX) / n;
+
+        // Predict next day
+        double nextDay = n + 1;
+        double predictedPrice = m * nextDay + b;
+
+        System.out.println("Predicted price for day " + (int)nextDay + ": " + predictedPrice);
+    }
+}
