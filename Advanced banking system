@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class BankingSystemAdvanced {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        double balance = 1000;
+
+        while (true) {
+            System.out.println("\n1.Deposit 2.Withdraw 3.Check Balance 4.Exit");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter deposit amount: ");
+                    double dep = sc.nextDouble();
+                    balance += dep;
+                    System.out.println("Deposited Successfully");
+                    break;
+
+                case 2:
+                    System.out.print("Enter withdraw amount: ");
+                    double wd = sc.nextDouble();
+                    if (wd > balance) {
+                        System.out.println("Insufficient Balance!");
+                    } else {
+                        balance -= wd;
+                        System.out.println("Withdraw Successful");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Balance: " + balance);
+                    break;
+
+                case 4:
+                    System.out.println("Thank you!");
+                    return;
+            }
+        }
+    }
+}
